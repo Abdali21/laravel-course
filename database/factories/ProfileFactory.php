@@ -22,7 +22,7 @@ class ProfileFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'password' => "password",
-            'bio'=>fake()->text(200),
+            'bio'=>fake()->text(),
         ];
     }
 }
