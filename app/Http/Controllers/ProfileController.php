@@ -22,4 +22,15 @@ class ProfileController extends Controller
       $profile =  Profile::findOrFail($id);
       return view("profile.show", compact("profile"));
    }
+
+   // create
+   public function create(){
+      return view("profile.create");
+   }
+
+   // store
+   public function store(Request $request){
+      dd($request);
+      return view("profile.store");
+   }
 }
