@@ -7,15 +7,19 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-   
+
+   // index
    public function index()
    {
-      $profiles = Profile::paginate(10);
-      return view("profiles", compact("profiles"));
+      $profiles = Profile::paginate(9);
+      return view("profile.index", compact("profiles"));
    }
 
-   public function show(Request $request){
-      dd($request->id);
-      return "show";
+   // show
+   public function show(Request $request)
+   {
+      $id = (int) $request->id;
+      $profile =  Profile::findOrFail($id);
+      return view("profile.show", compact("profile"));
    }
 }

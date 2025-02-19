@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("/profiles", [ProfileController::class, "index"])->name("profiles.index");
+
 Route::get("/profiles/{id}", [ProfileController::class, "show"])
 ->where("id", "\d+")	
 ->name("profiles.show");

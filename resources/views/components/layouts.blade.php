@@ -7,7 +7,7 @@
 </head>
 <body>
     @include('partials.navbar')
-    <main>
+    <main class="m-4">
         {{$slot}}
     </main>
     @include('partials.footer')
