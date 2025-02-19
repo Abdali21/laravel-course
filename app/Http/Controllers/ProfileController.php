@@ -30,7 +30,24 @@ class ProfileController extends Controller
 
    // store
    public function store(Request $request){
-      dd($request);
-      return view("profile.store");
+      $name = $request->name;
+      $email = $request->email;
+      $password = $request->password;
+      $bio = $request->bio;
+     
+      // validation
+       $request->validate([
+         "name"=>"required"
+       ]);
+
+      // insertion
+      Profile::create([
+         "name"=>$name,
+         "email"=>$email,
+         "password"=>$password,
+         "bio"=>$bio
+      ]);
+
+      return redirect()->route("profiles.index");
    }
 }
