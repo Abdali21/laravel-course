@@ -41,13 +41,7 @@ class ProfileController extends Controller
        ]);
 
       // insertion
-      Profile::create([
-         "name"=>$name,
-         "email"=>$email,
-         "password"=>$password,
-         "bio"=>$bio
-      ]);
-
-      return redirect()->route("profiles.index");
+      Profile::create($request->post());
+      return redirect()->route("profiles.index")->with("success","profile added successfuly");
    }
 }

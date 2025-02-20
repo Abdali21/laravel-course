@@ -7,7 +7,7 @@
                        <h2 class="text-lg font-semibold text-gray-800">{{ $profile->name }}</h2>
                        <p class="text-sm text-gray-600">{{ $profile->email }}</p>
                        <p class="text-sm text-gray-500">{{ Str::limit($profile->bio, 30) }}</p>
-                       <div class=" flex justify-center  mt-2 border px-2 py-2 w-[50%]">
+                       <div class=" flex justify-center  mt-2 border px-2 py-2 min-w-1/2">
                          <a href="{{route("profiles.show", $profile->id)}}" class="text-sm">
                               show more
                          </a>

@@ -1,5 +1,4 @@
-@props(['type', 'title', 'message'])
+@props(['type'])
 <div class="bg-{{$type}} text-white p-4  flex items-center justify-between">
-    <span class="font-semibold">{{$title}}</span>
-    <p class="ml-2">{{$message}}</p>
+        {{$slot}}
 </div>

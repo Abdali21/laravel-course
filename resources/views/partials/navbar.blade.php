@@ -2,4 +2,5 @@
     <a href="{{route("home")}}"  class="hover:text-gray-300 cursor-pointer">Home</a>
     <a href="/" class="hover:text-gray-300 cursor-pointer">My Informations</a>
     <a href="{{route("profiles.index")}}" class="hover:text-gray-300 cursor-pointer">All Profiles</a>
+    <a href="{{route("profiles.create")}}" class="hover:text-gray-300 cursor-pointer">Add a profile</a>
 </nav>
