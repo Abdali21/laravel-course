@@ -2,10 +2,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>social network || {{$title ?? ""}}</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body> 
     @include('partials.navbar')
     @include("partials.flashbag")
     <main class="m-4">
@@ -16,4 +16,4 @@
     </main>
     @include('partials.footer')
 </body>
-</html>
+</html> 

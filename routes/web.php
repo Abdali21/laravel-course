@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Route;
 // all profiles
 Route::get("/profiles", [ProfileController::class, "index"])->name("profiles.index");
 
-// show
-Route::get("/profiles/{id}", [ProfileController::class, "show"])
-->where("id", "\d+")	
-->name("profiles.show");
-
 // home
 Route::get("/",[HomeController::class, "index"])->name(("home"));
 
@@ -21,3 +16,8 @@ Route::get("/profiles/create", [ProfileController::class, "create"])->name("prof
 
 // store
 Route::post("/profiles/store", [ProfileController::class, "store"])->name("profiles.store");
+
+// show
+Route::get("/profiles/{profile}", [ProfileController::class, "show"])
+->where("profile", "\d+")	
+->name("profiles.show");

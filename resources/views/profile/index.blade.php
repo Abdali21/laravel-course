@@ -1,4 +1,3 @@
-<x-layouts>
+<x-layouts title="All Profiles">
         <x-profile-card :profiles="$profiles" />
-    </div>
 </x-layouts>
