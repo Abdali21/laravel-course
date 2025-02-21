@@ -9,27 +9,28 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
 
-   // index
+   // index----------------------------------------------------------------------------------------------
    public function index()
    {
       $profiles = Profile::paginate(9);
       return view("profile.index", compact("profiles"));
    }
 
-   // show
+   // show-----------------------------------------------------------------------------------------------
    public function show(Profile $profile)
    {
       return view("profile.show", compact("profile"));
    }
 
-   // create
+   // create---------------------------------------------------------------------------------------------
    public function create(){
       return view("profile.create");
    }
 
-   // store
+
+   // store-----------------------------------------------------------------------------------------------
    public function store(Request $request){
-     
+   
    // validation
      $formField = $request->validate([
          "name"=>"required",
@@ -38,14 +39,12 @@ class ProfileController extends Controller
          "bio" => "min:10"
        ]);
 
+       // crypt password
       $password = $request->password;
       $formField["password"] = Hash::make($password);
 
-      dd($formField); 
-
-
       // insertion
-      Profile::create($request->post());
+      Profile::create($formField);
       return redirect()->route("profiles.index")->with("success","profile added successfuly");
    }
 }
