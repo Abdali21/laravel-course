@@ -15,21 +15,27 @@ Route::post("/login", [LoginController::class, "login"])->name("login.login");
 Route::get("/logout",[LoginController::class, "logout"])->name("login.logout");
 
 
-// home -----------------------------------------------------------------------------------------------------------------------------
+// home -----------------------------------------------------------------------------------------------------------------------------------
 Route::get("/",[HomeController::class, "index"])->name(("home"));
 
-// insertion---------------------------------------------------------------------------------------------------------------------------
+// insertion-------------------------------------------------------------------------------------------------------------------------------
 // create
 Route::get("/profiles/create", [ProfileController::class, "create"])->name("profiles.create");
 // store 
 Route::post("/profiles/store", [ProfileController::class, "store"])->name("profiles.store");
 
-// show-------------------------------------------------------------------------------------------------------------------
+// show------------------------------------------------------------------------------------------------------------------------------------
 Route::get("/profiles/{profile}", [ProfileController::class, "show"])
 ->where("profile", "\d+")	
 ->name("profiles.show");
 
 
-// delete-------------------------------------------------------------------------------------------------------------------
+// delete-----------------------------------------------------------------------------------------------------------------------------------
 Route::delete("/profiles/{profile}", [ProfileController::class, "destroy"])->name("profiles.destroy");
 
+
+// update-----------------------------------------------------------------------------------------------------------------------------------
+//edit
+Route::get("/profiles/{profile}/edit", [ProfileController::class, "edit"])->name("profiles.edit");
+//update
+Route::put("/profiles/{profile}", [ProfileController::class, "update"])->name("profiles.update"); 

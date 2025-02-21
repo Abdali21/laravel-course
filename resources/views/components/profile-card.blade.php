@@ -9,6 +9,7 @@
                        <p class="text-sm text-gray-500">{{ Str::limit($profile->bio, 30) }}</p>
                        <hr>
                         <div class="flex space-x-2 mt-2">
+                               <!-- show more -->
                               <div>
                                    <button class="border bg-blue-500 p-1">
                                     <a href="{{route("profiles.show", $profile->id)}}">
@@ -16,6 +17,7 @@
                                      </a>
                                    </button>
                               </div>
+                               <!-- delete -->
                               <div>
                                    <form method="POST" action="{{route("profiles.destroy", $profile->id)}}">
                                     @method("DELETE")
@@ -23,6 +25,13 @@
                                     <button class="border bg-red-500 p-1 cursor-pointer">delete</button>
                                    </form>
                               </div>
+                                <!-- update -->
+                              <div>
+                                    <form method="GET" action="{{route("profiles.edit", $profile->id)}}">
+                                     @csrf
+                                     <button class="border bg-yellow-500 p-1 cursor-pointer">edit</button>
+                                    </form>
+                               </div>
                         </div>
                  </div>
            </div>
