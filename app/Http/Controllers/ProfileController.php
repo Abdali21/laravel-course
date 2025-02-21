@@ -28,14 +28,14 @@ class ProfileController extends Controller
 
    // store
    public function store(Request $request){
-      $name = $request->name;
-      $email = $request->email;
-      $password = $request->password;
-      $bio = $request->bio;
+     
      
       // validation
        $request->validate([
-         "name"=>"required"
+         "name"=>"required",
+         "email" =>"required|email|unique:profiles",
+         "password"=>"required",
+         "bio" => "min:10"
        ]);
 
       // insertion

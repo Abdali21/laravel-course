@@ -9,9 +9,6 @@
     @include('partials.navbar')
     @include("partials.flashbag")
     <main class="m-4">
-        @if (session()->has("success"))
-                {{session("success")}}
-        @endif
         {{$slot}}
     </main>
     @include('partials.footer')
