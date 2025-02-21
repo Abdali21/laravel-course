@@ -47,4 +47,12 @@ class ProfileController extends Controller
       Profile::create($formField);
       return redirect()->route("profiles.index")->with("success","profile added successfuly");
    }
+
+
+   //delete ---------------------------------------------------------------------------------------------
+  public function destroy(Profile $profile){
+     $profile->delete();
+     return to_route("profiles.index")->with("success", "profile deleted successfuly");
+  } 
 }
+

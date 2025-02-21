@@ -28,3 +28,8 @@ Route::post("/profiles/store", [ProfileController::class, "store"])->name("profi
 Route::get("/profiles/{profile}", [ProfileController::class, "show"])
 ->where("profile", "\d+")	
 ->name("profiles.show");
+
+
+// delete-------------------------------------------------------------------------------------------------------------------
+Route::delete("/profiles/{profile}", [ProfileController::class, "destroy"])->name("profiles.destroy");
+
