@@ -2,6 +2,7 @@
   <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-lg">
     @if ($errors->any())
     <x-alert type="red-400">
+    <h6>Errors:</h6>
     <ul>
       @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
@@ -43,7 +44,18 @@
       <div class="text-red-400 mt-2">
         {{$message}}
       </div>
-    @enderror
+         @enderror
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Password Confirmation</label>
+        <input type="password" name="password_confirmation" placeholder="Confirm your password"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        @error('password')
+      <div class="text-red-400 mt-2">
+        {{$message}}
+      </div>
+         @enderror
       </div>
 
       <div>
