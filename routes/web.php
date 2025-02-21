@@ -12,6 +12,7 @@ Route::get("/profiles", [ProfileController::class, "index"])->name("profiles.ind
 // login side -----------------------------------------------------------------------------------------------------------------------
 Route::get("/login", [LoginController::class, "show"])->name("login.show");
 Route::post("/login", [LoginController::class, "login"])->name("login.login");
+Route::get("/logout",[LoginController::class, "logout"])->name("login.logout");
 
 
 // home -----------------------------------------------------------------------------------------------------------------------------
