@@ -22,12 +22,12 @@
             <!-- Dropdown Menu -->
             <div id="infos" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg p-3 border border-gray-200">
                 <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-200">
-                    Name: 
+                  {{auth()->user()->name}}
                 </a>
                 <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-200">
-                    Email: 
+                   {{auth()->user()->email}}
                 </a>
-                <a href="{{route('login.logout')}}" class="block px-4 py-2 text-red-600 hover:bg-red-100 rounded-md transition duration-200">
+                <a href="{{route('login.logout')}}" class="block px-4 py-2 text-red-600 bg-red-100 rounded-md transition duration-200">
                     Logout
                 </a>
             </div>
