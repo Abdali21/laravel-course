@@ -22,7 +22,7 @@ class LoginController extends Controller
          if(Auth::attempt($credentials)){
             // connection successfully
               $request->session()->regenerate();
-              return to_route("profiles.index")->with("success" ,"login successfully");
+              return to_route("profiles.index")->with("success" ,"login successfully " .$login. "");
             
          }else{
             // connection failed
