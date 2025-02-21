@@ -1,12 +1,14 @@
 <x-layouts>
   <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-lg">
     @if ($errors->any())
-       @foreach ($errors->all() as $error)
-            <x-alert type="red-400">
-              {{$error}}
-            </x-alert>
-       @endforeach        
-    @endif
+    <x-alert type="red-400">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+      @endforeach   
+    </ul>
+    </x-alert>
+  @endif
     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Create Profile</h2>
     <form method="POST" action="{{route("profiles.store")}}" class="space-y-4">
       @csrf
@@ -51,8 +53,8 @@
         @error('bio')
       <div class="text-red-400 mt-2">
         {{$message}}
-        </div>
-        @enderror
+      </div>
+    @enderror
       </div>
 
       <button type="submit"

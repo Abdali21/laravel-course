@@ -1,4 +1,4 @@
 @props(['type'])
-<div class="bg-{{$type}} text-white p-4  flex items-center justify-between">
+<div class="bg-{{$type}} text-white p-2 my-2">
         {{$slot}}
 </div>
