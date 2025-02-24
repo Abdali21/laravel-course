@@ -7,9 +7,9 @@
                 class="w-16 h-16 rounded-full object-cover border-2 border-gray-300 shadow-md" 
                 alt="Profile Image">
             <div>
-                <p class="text-gray-700 font-medium">ID: {{$profile->id}}</p>
-                <p class="text-gray-800 font-semibold">{{$profile->name}}</p>
+                <p class="text-gray-700 font-medium">#{{$profile->id}} {{$profile->name}}</p>
                 <p class="text-gray-600">{{$profile->email}}</p>
+                <p class="text-gray-800 font-semibold">{{$profile->created_at->format('d-m-Y')}}</p>
             </div>
         </div>
     </div>

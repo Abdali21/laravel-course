@@ -10,7 +10,13 @@ class Profile extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $dates = ["created_at"];
     protected $fillable = [
         "name", "email", "password", "bio", "image"
     ];
+
+    // to set default image
+    public function getImageAttribute($value){
+      return $value ?? "profile/bg.png";
+    }
 }

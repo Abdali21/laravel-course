@@ -31,20 +31,21 @@ class ProfileController extends Controller
    // store-----------------------------------------------------------------------------------------------
    public function store(Request $request)
    {
-
       // validation
       $formField = $request->validate([
          "name" => "required",
          "email" => "required|email|unique:profiles",
          "password" => "required|confirmed",
          "bio" => "min:10",
-         "image" => "image  |mimes:jpeg,png,jpg,svg |max: 3000"
+         "image" => "image |mimes:jpeg,png,jpg,svg |max: 3000"
       ]);
 
       // store image
       if($request->hasFile("image")){
          $fileName = $request->file("image")->store("profile", "public");
          $formField["image"] = $fileName;
+      }else{
+         $formField["image"] = "profile/bg.png";
       }
 
       // crypt password
@@ -86,6 +87,8 @@ class ProfileController extends Controller
       if($request->hasFile("image")){
          $fileName = $request->file("image")->store("profile", "public");
          $formField["image"] = $fileName;
+      }else{
+         $formField["image"] = "profile/bg.png";
       }
 
       // crypt password
