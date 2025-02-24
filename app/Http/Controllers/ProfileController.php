@@ -41,6 +41,10 @@ class ProfileController extends Controller
          "image" => "required | image  |mimes:jpeg,png,jpg,svg |max: 3000"
       ]);
 
+      // store image
+      $fileName = $request->file("image")->store("profile", "public");
+      $formField["image"] = $fileName;
+
       // crypt password
       $password = $request->password;
       $formField["password"] = Hash::make($password);
