@@ -38,12 +38,14 @@ class ProfileController extends Controller
          "email" => "required|email|unique:profiles",
          "password" => "required|confirmed",
          "bio" => "min:10",
-         "image" => "required | image  |mimes:jpeg,png,jpg,svg |max: 3000"
+         "image" => "image  |mimes:jpeg,png,jpg,svg |max: 3000"
       ]);
 
       // store image
-      $fileName = $request->file("image")->store("profile", "public");
-      $formField["image"] = $fileName;
+      if($request->hasFile("image")){
+         $fileName = $request->file("image")->store("profile", "public");
+         $formField["image"] = $fileName;
+      }
 
       // crypt password
       $password = $request->password;
@@ -68,16 +70,29 @@ class ProfileController extends Controller
       return view("profile.edit", compact("profile"));
    }
 
+   // update
    public function update(Request $request, Profile $profile)
    {
       // validation
       $formField = $request->validate([
          "name" => "required",
-         "email" => "required|email|unique:profiles",
+         "email" => "required|email",
          "password" => "required|confirmed",
-         "bio" => "min:10"
+         "bio" => "min:10",
+         "image" => "image  | mimes:jpeg,png,jpg,svg |max: 3000"
       ]);
 
+      // store image
+      if($request->hasFile("image")){
+         $fileName = $request->file("image")->store("profile", "public");
+         $formField["image"] = $fileName;
+      }
+
+      // crypt password
+      $password = $request->password;
+      $formField["password"] = Hash::make($password);
+
+      // fill 
       $profile->fill($formField)->save();
       return to_route("profiles.show", $profile->id)->with("success", "profiles added successfully");
    }
