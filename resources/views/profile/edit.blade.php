@@ -12,7 +12,7 @@
   @endif
 
     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Update Your Profile</h2>
-    <form method="POST" action="{{route("profiles.update", $profile->id)}}"  class="space-y-4">
+    <form method="POST" action="{{route("profiles.update", $profile->id)}}" enctype="multipart/form-data"  class="space-y-4">
       @csrf
       @method("PUT")
       <div>
@@ -67,6 +67,18 @@
           {{old("nio", $profile->bio)}}
       </textarea>
         @error('bio')
+      <div class="text-red-400 mt-2">
+        {{$message}}
+      </div>
+    @enderror
+      </div>
+
+      
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Image</label>
+        <input type="file" name="image"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        @error('password')
       <div class="text-red-400 mt-2">
         {{$message}}
       </div>

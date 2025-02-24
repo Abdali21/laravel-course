@@ -2,16 +2,15 @@
   <div class="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-lg">
     @if ($errors->any())
     <x-alert type="red-400">
-    <h6>Errors:</h6>
-    <ul>
+      <h6>Errors:</h6>
+      <ul>
       @foreach ($errors->all() as $error)
-        <li>{{$error}}</li>
-      @endforeach   
-    </ul>
+      <li>{{$error}}</li>
+    @endforeach      </ul>
     </x-alert>
   @endif
     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Create Profile</h2>
-    <form method="POST" action="{{route("profiles.store")}}" class="space-y-4">
+    <form method="POST" action="{{route("profiles.store")}}" class="space-y-4" enctype="multipart/form-data">
       @csrf
       <div>
         <label class="block text-sm font-medium text-gray-700">Name</label>
@@ -44,7 +43,7 @@
       <div class="text-red-400 mt-2">
         {{$message}}
       </div>
-         @enderror
+    @enderror
       </div>
 
       <div>
@@ -55,7 +54,7 @@
       <div class="text-red-400 mt-2">
         {{$message}}
       </div>
-         @enderror
+    @enderror
       </div>
 
       <div>
@@ -68,6 +67,18 @@
       </div>
     @enderror
       </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Image</label>
+        <input type="file" name="image"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+        @error('password')
+      <div class="text-red-400 mt-2">
+        {{$message}}
+      </div>
+    @enderror
+      </div>
+
 
       <button type="submit"
         class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">

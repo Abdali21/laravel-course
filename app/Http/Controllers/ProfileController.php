@@ -37,7 +37,8 @@ class ProfileController extends Controller
          "name" => "required",
          "email" => "required|email|unique:profiles",
          "password" => "required|confirmed",
-         "bio" => "min:10"
+         "bio" => "min:10",
+         "image" => "required | image  |mimes:jpeg,png,jpg,svg |max: 3000"
       ]);
 
       // crypt password
