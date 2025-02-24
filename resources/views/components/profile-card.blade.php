@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1  md:grid-cols-3 gap-4">
      @foreach ($profiles as $profile)
            <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4">
-                 <input type="image" src="https://picsum.photos/id/237/200/300"
+                 <input type="image" src="{{asset('storage/'.$profile->image)}}"
                        class="w-16 h-16 rounded-full object-cover border-2 border-gray-300" alt="Profile Image">
                  <div class="flex flex-col">
                        <h2 class="text-lg font-semibold text-gray-800">{{ $profile->name }}</h2>
