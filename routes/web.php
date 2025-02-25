@@ -6,7 +6,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // profile side ---------------------------------------------------------------------------------------------------------------------------
-Route::resource("profiles", ProfileController::class)->middleware("authenticate");
+Route::resource("/profiles", ProfileController::class)
+->middleware("authenticate");
 
 // login side -----------------------------------------------------------------------------------------------------------------------------
 Route::get("/login", [LoginController::class, "show"])->name("login.show");

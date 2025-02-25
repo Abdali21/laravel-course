@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-
+ 
    // index----------------------------------------------------------------------------------------------
    public function index()
    {

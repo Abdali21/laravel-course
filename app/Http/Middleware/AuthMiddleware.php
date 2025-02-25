@@ -18,7 +18,8 @@ class AuthMiddleware
     {
         if(Auth::check()){
             return $next($request);
+        }else{
+            return redirect("login");
         }
-        abort(401);
     }
 }
